@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+@import './variables.less';
+
+
+html, body { height: 100%}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; overflow: hidden;}
+
+h1 {
+    font-size: 2.5em !important;
+}
+
+h2 {
+    font-size: 2em !important;
+}
+
+.mat-mdc-card {
+    box-shadow: none !important;
+    border: 1px solid black !important;
+}

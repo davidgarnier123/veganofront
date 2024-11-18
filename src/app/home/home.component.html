@@ -1,0 +1,38 @@
+<div class="w-4/5 lg:w-3/5 m-0 m-auto mt-8 mb-8 pb-12 pr-12 pl-12 bg-[rgba(255,255,255,0.7)] rounded-lg">
+
+    <section class=" p-4 rounded-lg mb-8">
+        <h1 class="text-primary mb-4">Recettes Véganes Savoureuses et Créatives</h1>
+        <article>
+            <p class="text-lg">Découvrez notre sélection de plats végétaliens savoureux et créatifs, conçus pour ravir vos papilles tout en respectant notre planète. Nos recettes véganes sont parfaites pour une alimentation saine et écoresponsable.</p>
+        </article>
+    
+        <article>
+            <h2 class="text-accent-secondary mb-2">Des Ingrédients Sains pour une Cuisine Végane Équilibrée 🥗</h2>
+            <p class="text-lg">Nos recettes végétaliennes mettent en avant des ingrédients frais et nutritifs, essentiels pour une alimentation végane équilibrée. Que vous soyez novice en cuisine végane ou expert, nos instructions simples vous guideront facilement dans la préparation de délicieux plats végétaliens.</p>
+        </article>
+    
+        <article>
+            <h2 class="text-accent-secondary mb-2">Cuisine Végane pour Tous les Goûts 🥰</h2>
+            <p class="text-lg">Des plats principaux végétaliens réconfortants aux desserts véganes irrésistibles, notre collection de recettes véganes offre des options pour tous les goûts et toutes les occasions. Explorez nos recettes végétaliennes ci-dessous et laissez-vous inspirer par la richesse de la cuisine végane !</p>
+        </article>
+    
+        <a href="#recettes" class="btn btn-primary mt-4 text-primary hover:text-accent-secondary duration-200">Découvrir Nos Recettes Véganes</a>
+    </section>
+
+
+        <h3 class="lg:text-xl text-sm text-primary relative z-20">Les dernières recettes</h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-10">
+        <app-recipe-card 
+        *ngFor="let recipe of recipesService.recipes.slice(0, 8)"
+        [title]="recipe.titre"
+        [date]="'7 août 2024'"
+        [slug]="recipe.id"
+        [recipe]="recipe">
+      </app-recipe-card>
+    </div>
+
+    <button routerLink="/recettes" class="bg-accent-secondary text-white p-6 rounded-lg transition duration-200 transform hover:-translate-y-2">
+        Voir les autres recettes
+    </button>
+</div>

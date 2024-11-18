@@ -1,0 +1,36 @@
+<div class="w-4/5 lg:w-3/5 m-0 m-auto mt-8 mb-8 pb-12 pr-12 pl-12 bg-[rgba(255,255,255,0.7)] rounded-lg">
+  <div class="flex justify-around mb-4">
+    <mat-form-field>
+      <mat-label>Rechercher une recette</mat-label>
+      <input matInput type="text" [formControl]="searchControl">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <!-- <mat-form-field>
+      <mat-label>Ingredients</mat-label>
+      <mat-select [formControl]="ingredients" multiple>
+        @for (ingredient of filteredIngredientsList; track ingredient) {
+          <mat-option [value]="ingredient">{{ingredient}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field> -->
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-10">
+    <app-recipe-card 
+      *ngFor="let recipe of pagedRecipes"
+      [title]="recipe.titre"
+      [date]="'7 août 2024'"
+      [slug]="recipe.id"
+      [recipe]="recipe">
+    </app-recipe-card>
+  </div>
+
+  <mat-paginator 
+    class="custom-paginator" 
+    [length]="_recipesService.recipes.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+</div>

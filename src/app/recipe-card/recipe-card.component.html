@@ -1,0 +1,13 @@
+<mat-card class="max-w-sm rounded-lg overflow-hidden h-auto cursor-pointer group" (click)="navigateToRecipe()">
+  <img mat-card-image class="w-full h-52 object-cover transform transition-transform duration-300 z-10 scale-105 group-hover:scale-125 overflow-hidden" [src]="'../../assets/recipes/'+slug+'-1.jpg'" alt="Image de la recette">
+  <mat-card-content class="bg-white h-full flex flex-col z-20">
+    <mat-card-title class="font-light text-primary overflow-hidden h-28 pt-4 pb-4">
+      <p class="text-lg">{{ title }}</p>
+    </mat-card-title>
+    <!-- <mat-card-subtitle>
+      <p class="text-sm text-accent-secondary">
+        {{date}}
+      </p>
+    </mat-card-subtitle> -->
+  </mat-card-content>
+</mat-card>

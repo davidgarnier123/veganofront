@@ -1,0 +1,47 @@
+<div class="w-full lg:w-3/5 m-0 m-auto mt-8 mb-8 pb-12 pr-12 pl-12 bg-[rgba(255,255,255,0.7)] rounded-lg">
+  <button (click)="goBack()" class="btn btn-primary p-2 mt-2 text-white rounded-lg transition duration-200 transform hover:-translate-y-2 bg-accent-secondary">Retour</button>
+
+  <h1 class="text-2xl font-bold mb-4 text-primary">{{recipeData.recipe.titre}}</h1>
+
+  <!-- Espace pour les images -->
+  <div class="mb-6 flex flex-wrap justify-center gap-4">
+    <ng-container *ngFor="let i of [1, 2, 3]">
+      <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 max-w-xs">
+        <img [src]="getImagePath(recipeData.recipe.id, i)"
+             [alt]="recipeData.recipe.titre + ' image ' + i"
+             class="w-full h-48 object-cover rounded-lg shadow-md ="
+             (error)="onImageError($event, i)">
+      </div>
+    </ng-container>
+  </div>
+
+  <h2 class="text-xl font-semibold mb-2 text-accent-secondary">Ingrédients :</h2>
+  <ul class="list-disc pl-5 mb-4">
+    <li *ngFor="let ingredient of recipeData.recipe.ingredients">
+      <span *ngIf="ingredient.quantite">{{ ingredient.quantite }} </span>{{ ingredient.ingredient }}
+    </li>
+  </ul>
+
+  <h2 class="text-xl font-semibold mb-2 text-accent-secondary">Étapes :</h2>
+  <ol class="list-decimal pl-5 mb-4">
+    <li *ngFor="let etape of recipeData.recipe.etapes" class="mb-2">
+      {{ etape }}
+    </li>
+  </ol>
+
+  <p *ngIf="recipeData.recipe.note" class="mb-2"><strong>Note :</strong> {{ recipeData.recipe.note }}</p>
+  <p *ngIf="recipeData.recipe.astuce" class="mb-2"><strong>Astuce :</strong> {{ recipeData.recipe.astuce }}</p>
+
+  <!-- Section de partage -->
+  <div class="mt-8">
+    <h2 class="text-xl font-semibold mb-2 text-accent-secondary">Partagez cette recette :</h2>
+    <div class="flex space-x-4">
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ currentUrl }}" target="_blank" class="btn btn-social">
+        <img src="../../../assets/fb.svg" alt="Partager sur Facebook" class="w-6 h-6">
+      </a>
+      <a href="https://twitter.com/intent/tweet?url={{ currentUrl }}&text={{ recipeData.recipe.titre }}" target="_blank" class="btn btn-social">
+        <img src="../../../assets/tt.png" alt="Partager sur Twitter" class="w-6 h-6">
+      </a>
+    </div>
+  </div>
+</div>
